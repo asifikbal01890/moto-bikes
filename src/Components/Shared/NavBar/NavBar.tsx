@@ -1,18 +1,9 @@
 'use client'
+ 
+import { useState } from 'react';
+import Link from "next/link";
 
-import Link from 'next/link';
-import React, { useState } from 'react';
-
-interface NavBarProps {
-    
-  }
-
-interface NavBarState {
-    isMaxSidebar: boolean;
-  }
-
-const NavBar: React.FC<NavBarProps> = () => {
-
+export default function NavBar() {
     const [isMaxSidebar, setIsMaxSidebar] =useState(false);
 
     const handleBtnClick = () => {
@@ -128,6 +119,4 @@ const NavBar: React.FC<NavBarProps> = () => {
         </div>
 
     );
-};
-
-export default NavBar;
+}
