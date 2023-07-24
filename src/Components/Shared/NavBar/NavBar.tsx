@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
 
-interface MyComponentProps {
+interface NavBarProps {
     
   }
 
@@ -11,9 +11,9 @@ interface NavBarState {
     isMaxSidebar: boolean;
   }
 
-const NavBar: React.FC<MyComponentProps> = () => {
+const NavBar: React.FC<NavBarProps> = () => {
 
-    const [isMaxSidebar, setIsMaxSidebar] = useState(false);
+    const [isMaxSidebar, setIsMaxSidebar] =useState(false);
 
     const handleBtnClick = () => {
         setIsMaxSidebar(isMaxSidebar => !isMaxSidebar)
