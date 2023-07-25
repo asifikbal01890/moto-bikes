@@ -1,11 +1,15 @@
-import React from 'react';
+import Banner from "./Banner/Banner";
+import OurAim from "./OurAim/OurAim";
+import TopSeller from "./TopSeller/TopSeller";
+import UsersCount from "./UsersCount/UsersCount";
 
-const Home = () => {
+export default function Home() {
     return (
-        <div>
-            hello
-        </div>
+        <section>
+            <Banner></Banner>
+            <OurAim></OurAim>
+            <UsersCount></UsersCount>
+            <TopSeller></TopSeller>
+        </section>
     );
-};
-
-export default Home;
+}
