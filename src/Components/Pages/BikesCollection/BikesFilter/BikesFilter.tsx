@@ -1,3 +1,4 @@
+'use client'
 export default function BikesFilter() {
     // const [value, setValue] = useState([1000]);
     // const [month, setMonth] = useState([0, 12]);

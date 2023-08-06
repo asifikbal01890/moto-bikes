@@ -65,3 +65,18 @@ body {
 .btn-secondary:active{
   transform: scale(.90);
 }
+.btn-accent{
+  border: 2px solid #848b94;
+  color: #000000;
+  border-radius: 5px;
+  padding: 3px 8px 3px 8px;
+  transition-duration: 200ms;
+}
+.btn-accent:hover{
+  border: 2px solid #323232;
+}
+.btn-accent:active{
+  background-color: #ff8800;
+  border: 2px solid #ff8800;
+  transform: scale(.90);
+}

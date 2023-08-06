@@ -15,7 +15,7 @@ export default function BikesCollection() {
     const {bikes} = useAppSelector((state) => state.bikes)
     const {bike} = useAppSelector((state) => state.bikes)
     const {count} = useAppSelector((state) => state.counter)
-    console.log(bike);
+    
     
     useEffect(() => {
         dispatch(getBikes())

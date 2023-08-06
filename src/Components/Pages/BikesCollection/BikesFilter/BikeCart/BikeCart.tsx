@@ -2,36 +2,20 @@
 
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
 import './BikeCart.css';
-// import { addToCart } from '@/features/cartSlice/cartSlice';
-import { useState } from 'react';
-import { getLocalStorageItem, setLocalStorageItem } from '@/utils/localStorage';
-import { decrement, increment } from '@/features/counterSlice/counterSlice';
+import { addToCart, decrementQuantity, incrementQuantity } from '@/features/cartSlice/cartSlice';
+
 
 
 export default function BikeCart({ bike, count }:any) {
     const { picture, _id, name, resalePrice, originalPrice, sellerName, location, category, condition, description, use, time, mobileNumber } =  bike;
-    
-        // const [inputValue, setInputValue] = useState<string>('');
-        const [buttonHidden, setButtonHidden] = useState<boolean>(false);
-        // const storageKey = _id;
-      
-        // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        //   const newValue = e.target.value;
-        //   setInputValue(newValue);
-        //   // Update the local storage item whenever the input value changes
-        //   setLocalStorageItem(storageKey, newValue);
-        // };
-      
-        const handleClickGet = (item:any) => {
-        //   const item = getLocalStorageItem(storageKey);
-          console.log('Item from Local Storage:', item);
-          setButtonHidden(true)
-        };
+     
+        // const id = useParams()
+        const {quantity} = useAppSelector((state) => state.cart)
+        const cart = useAppSelector((state: any) => state.cart.cart)
+        const dispatch = useAppDispatch(); 
 
-        // const handlecounterButton = () =>{}
-
-
-    const dispatch = useAppDispatch();
+    const cartInfo = cart.find((bike: any) => bike._id === _id)
+    console.log(cartInfo);
 
     return (
         <div>
@@ -74,19 +58,31 @@ export default function BikeCart({ bike, count }:any) {
                         </div>
                     </div>
                     <div className='pt-4'>
-                        <p className='text-start'>{description.slice(0, 200)}</p>
+                        <p className='text-start'>{description.slice(0, 150)}...</p>
                     </div>
                     <div className='flex items-center justify-between mt-4 p-2 border'>
                         <div className=' text-center'>
                             <p className='text-sm text-slate-600'>Total Price</p>
-                        <h1 className='text-primary text-2xl font-semibold'>$7000</h1>
+                        <h1 className='text-primary text-2xl font-semibold'>
+                            {
+                             cartInfo?.quantity?(resalePrice*cartInfo?.quantity): 0
+                            }   
+                        </h1>
                         </div>
-                        <div className={`${!buttonHidden? 'hidden':'flex'} items-center gap-3`}>
-                        <button onClick={() => dispatch(decrement())}  className='btn-primary'>-</button>
-                        <p>{count}</p>
-                        <button onClick={() => dispatch(increment())} className='btn-primary'>+</button>
+                        <div className={`${cartInfo?.quantity > 0 ? 'flex': 'hidden'} flex items-center gap-3`}>
+                        <button onClick={() => dispatch(decrementQuantity(bike))}  className='btn-primary'>-</button>
+                        <p>{
+                            cartInfo?
+                            <>
+                            {
+                            cartInfo.quantity
+                            }</>
+                            :
+                            <>0</>
+                            }</p>
+                        <button onClick={() => dispatch(incrementQuantity(bike))} className='btn-primary'>+</button>
                         </div>
-                        <button onClick={()=>handleClickGet(bike)} className={`${!buttonHidden? 'flex':'hidden'} btn-primary`}>Add to Cart</button>
+                        <button onClick={()=>dispatch(addToCart(bike))} className={`${cartInfo?.quantity? 'hidden': 'flex'} btn-primary`}>Add to Cart</button>
                         
                     </div>
                 </div>

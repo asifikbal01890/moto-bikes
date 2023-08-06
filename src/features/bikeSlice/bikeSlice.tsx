@@ -21,7 +21,7 @@ count: number,
 isLoading: boolean,
 isError: boolean,
 error: string | null,
-bike?: any,
+bike: any,
 id: string
 }
 
@@ -30,30 +30,15 @@ const initialState: bikesType = {
   count: 0,
   isLoading: false,
   isError: false,
-  error: '',  
+  error: '',
+  bike:[],
   id: ''
 }
 
 const bikeSlice = createSlice({
     name: "bikes",
     initialState,
-     reducers:
-   {
-    increment: (state, action: PayloadAction<string>) => {
-      const id = action.payload;
-      if (state.bike?._id === id) {
-        state.count += 1;
-      } else {
-        state.count = 1;
-      }
-      state.id = id;
-    },
-    decrement: (state) => {
-      if (state.count !== 0) {
-        state.count -= 1;
-      }
-    },
-  },
+    reducers:{},
     extraReducers: (builder) => {
         builder
         .addCase(getBikes.pending, (state) => {
@@ -90,6 +75,5 @@ const bikeSlice = createSlice({
     }
 });
 
-export const { increment, decrement } = bikeSlice.actions;
 
 export default bikeSlice.reducer;

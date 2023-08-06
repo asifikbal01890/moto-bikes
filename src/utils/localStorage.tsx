@@ -1,9 +1,20 @@
-import Cookies from 'js-cookie';
-
-export function setLocalStorageItem(key: string, value: string): void {
-  Cookies.set(key, value, { expires: 365 }); // You can adjust the expiration date as needed
+export function setLocalStorageData(key:any, data:any) {
+  try {
+    const dataString = JSON.stringify(data);
+    localStorage.setItem(key, dataString);
+  } catch (error) {
+    console.error('Error setting data in local storage:', error);
+  }
 }
 
-export function getLocalStorageItem(key: string): string | undefined {
-  return Cookies.get(key);
+export function getLocalStorageData(key:any) {
+  try {
+    const dataString = localStorage.getItem(key);
+    if (dataString) {
+      return JSON.parse(dataString);
+    }
+  } catch (error) {
+    console.error('Error getting data from local storage:', error);
+  }
+  return null;
 }
