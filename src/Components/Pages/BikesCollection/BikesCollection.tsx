@@ -1,4 +1,4 @@
-// 'use client'
+'use client'
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "@/app/hooks";
 import BikesFilter from "./BikesFilter/BikesFilter";
