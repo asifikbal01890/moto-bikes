@@ -1,4 +1,4 @@
-'use client'
+
 import NavBar from '@/Components/Shared/NavBar/NavBar';
 import './globals.css';
 import { Inter } from 'next/font/google';

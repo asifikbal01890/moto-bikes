@@ -1,4 +1,4 @@
-'use client'
+// 'use client'
 
 import CardOfCart from "./CardOfCart/CardOfCart";
 import { useAppSelector } from "@/app/hooks";

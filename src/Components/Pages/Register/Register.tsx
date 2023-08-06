@@ -1,4 +1,4 @@
-'use client'
+// 'use client'
 import Link from "next/link";
 import { FaFacebookF, FaGithub, FaGoogle } from "react-icons/fa";
 

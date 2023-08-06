@@ -1,4 +1,4 @@
-'user client'
+// 'user client'
 
 import CountUp from 'react-countup';
 import { FaShoppingCart, FaUser } from 'react-icons/fa';

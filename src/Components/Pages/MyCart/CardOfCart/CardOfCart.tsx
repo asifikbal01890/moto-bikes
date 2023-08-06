@@ -1,4 +1,4 @@
-'use client'
+// 'use client'
 
 import { useAppDispatch } from "@/app/hooks";
 import { decrementQuantity, incrementQuantity, removeFromCart } from "@/features/cartSlice/cartSlice";

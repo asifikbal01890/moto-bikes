@@ -1,4 +1,4 @@
-'use client'
+// 'use client'
 
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
 import './BikeCart.css';

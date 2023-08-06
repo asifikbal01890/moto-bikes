@@ -1,4 +1,4 @@
-'use client'
+// 'use client'
 import Banner from "./Banner/Banner";
 import BikesCategory from "./BikesCategory/BikesCategory";
 import GoogleMaps from "./GoogleMaps/GoogleMaps";
